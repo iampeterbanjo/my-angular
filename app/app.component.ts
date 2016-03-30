@@ -26,7 +26,7 @@ var HEROES: Hero[] = [
     <h2>My Heroes</h2>
     <ul>
       <li *ngFor="#hero of heroes">
-        <span class"badge">{{hero.id}}</span> {{hero.name}}
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
       </li>
     </ul>
 
