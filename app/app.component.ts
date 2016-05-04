@@ -1,8 +1,7 @@
-import {Component} from 'angular2/core';
 import {Hero} from './hero';
 import {HeroDetailComponent} from './hero-detail.component';
 import {HeroService} from './hero.service';
-import {OnInit} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 
 var heroes: Hero[];
 
@@ -82,7 +81,7 @@ export class AppComponent implements OnInit {
   }
 
   getHeroes() {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
 
   public title = 'Tour of Heroes'
