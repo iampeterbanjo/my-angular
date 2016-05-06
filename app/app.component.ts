@@ -1,19 +1,14 @@
 import {Component} from 'angular2/core';
 import {HeroesComponent} from './heroes.component';
 import {HeroService} from './hero.service';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouterLink} from 'angular2/router';
+import {DashboardComponent} from './dashboard.component';
 
 @Component({
   selector: 'my-app'
-  , template: `
-    <h1>{{title}}</h1>
-    <my-heroes></my-heroes>
-  `
+  , templateUrl: 'app/dashboard.component.html'
   , directives: [ROUTER_DIRECTIVES]
-  , providers: [
-    ROUTER_PROVIDERS
-    , HeroService
-  ]
+  , providers: [HeroService, ROUTER_PROVIDERS]
 })
 
 @RouteConfig([
@@ -21,6 +16,12 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
     path: '/heroes'
     , name: 'Heroes'
     , component: HeroesComponent
+  }
+  , {
+    path: '/dashboard'
+    , name: 'Dashboard'
+    , component: DashboardComponent
+    , useAsDefault: true
   }
 ])
 
